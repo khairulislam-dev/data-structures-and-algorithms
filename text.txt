@@ -1,0 +1,25 @@
+public static void removeCycle(Node head){
+    // detected cycle
+    Node slow = head;
+    Node fast = head;
+
+    while(fast != null && fast.next != null){
+        slow = slow.next;
+        fast = fast.next.next;
+        if(slow == fast){
+            break;
+        }
+    }
+
+
+    // slow = head  // fast already meeting point
+    // prev = null
+    // slow+1 and fast+1 if not meeting
+    Node prev = null;
+    while(slow != fast){
+        prev = fast;
+        slow = slow.next;
+        fast = fast.next;
+    }
+    prev.next = null
+}
